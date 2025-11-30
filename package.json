@@ -20,7 +20,8 @@
         "format:fix": "prettier . --write",
         "lint:check": "npx eslint .",
         "lint:fix": "npx eslint . --fix",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "husky"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",
@@ -28,8 +29,16 @@
         "@typescript-eslint/eslint-plugin": "^8.48.0",
         "@typescript-eslint/parser": "^8.48.0",
         "eslint": "^9.39.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.7",
         "prettier": "3.7.2",
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.48.0"
+    },
+    "lint-staged": {
+        "*.ts": [
+            "npm run format:fix",
+            "npm run lint:fix"
+        ]
     }
 }
