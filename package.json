@@ -12,7 +12,7 @@
     },
     "license": "ISC",
     "author": "Nandhu Sathish <writetonandhusathish@gmail.com>",
-    "type": "commonjs",
+    "type": "module",
     "main": "index.js",
     "scripts": {
         "dev": "node src/server.js",
@@ -25,6 +25,7 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.39.1",
+        "@types/dotenv": "^6.1.1",
         "@types/node": "^24.10.1",
         "@typescript-eslint/eslint-plugin": "^8.48.0",
         "@typescript-eslint/parser": "^8.48.0",
@@ -40,5 +41,8 @@
             "npm run format:fix",
             "npm run lint:fix"
         ]
+    },
+    "dependencies": {
+        "dotenv": "^17.2.3"
     }
 }
