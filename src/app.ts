@@ -3,7 +3,7 @@ import express, {
     type Request,
     type Response,
 } from 'express';
-import logger from './config/logger';
+import logger from './config/logger.ts';
 import type { HttpError } from 'http-errors';
 
 const app = express();

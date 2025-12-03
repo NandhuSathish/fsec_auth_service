@@ -1,0 +1,25 @@
+FROM node:24.12.0-alpine
+
+# Install dumb-init for proper signal handling
+RUN apk add --no-cache dumb-init
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json first to leverage Docker cache
+COPY package*.json ./
+
+# Install app dependencies
+RUN npm ci --only=development
+
+# Copy the rest of our app's source code into the container
+COPY . .
+
+# Run as non-root user for security
+USER node
+
+# Expose the port the app will run on
+EXPOSE 5501
+
+# The command to run our app with dumb-init
+CMD ["dumb-init", "npm", "run", "dev"]
